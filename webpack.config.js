@@ -9,6 +9,15 @@ module.exports = {
         path: __dirname + '/js',
         filename: 'app.bundle.js'
     },
+    module: {
+        loaders: [
+            {
+                test: /\.js$/,
+                loader: 'ng-annotate!babel?presets[]=es2015!jshint',
+                exclude: /node_modules|bower_components/
+            }
+        ]
+    },
     plugins: [
         new webpack.optimize.CommonsChunkPlugin( /* chunkName= */ "vendor", /* filename= */ "vendor.bundle.js")
     ]

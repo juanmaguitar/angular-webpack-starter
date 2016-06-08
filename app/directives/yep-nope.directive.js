@@ -1,13 +1,13 @@
-function YepNopeDirective() {
+let YepNopeDirective = () => {
   return {
     restrict: 'E',
-    link: function (scope, element, attrs) {
-      scope.$watch(attrs.check, function (val) {
+    link: (scope, element, attrs) => {
+      scope.$watch(attrs.check, (val) => {
         var words = val ? 'Yep' : 'Nope';
         element.text(words);
       });
     }
-  }
-}
+  };
+};
 
 module.exports = YepNopeDirective;

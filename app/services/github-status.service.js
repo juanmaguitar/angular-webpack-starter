@@ -1,17 +1,16 @@
 'use strict';
 
-GithubStatusService.$inject = ['$http'];
-function GithubStatusService($http) {
-    var _this = this;
-    _this.getStatus = function getStatus() {
+/* @ngInject */
+class GithubStatusService {
+  constructor($http) {
+    this.getStatus = () => {
         return $http({
             method: 'jsonp',
             url: 'https://status.github.com/api/status.json?callback=JSON_CALLBACK',
-            transformResponse: appendTransform($http.defaults.transformResponse, function(value) {
-                return (value.status === 'good');
-            })
+            transformResponse: appendTransform($http.defaults.transformResponse, (value) => (value.status === 'good') )
         });
-    }
+    };
+  }
 }
 
 function appendTransform(defaults, transform) {

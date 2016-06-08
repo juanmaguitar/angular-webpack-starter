@@ -1,12 +1,10 @@
 'use strict';
 
-DashboardController.$inject = ['GithubStatusService'];
-function DashboardController(gh) {
-    var _this = this;
-    _this.github = '';
-    gh.getStatus().success(function(status) {
-        _this.github = status;
-    });
+class DashboardController {
+  constructor(gh) {
+  	this.github = '';
+  	gh.getStatus().success( (status) => this.github = status );
+  }
 }
-
+DashboardController.$inject = ['GithubStatusService'];
 module.exports = DashboardController;
