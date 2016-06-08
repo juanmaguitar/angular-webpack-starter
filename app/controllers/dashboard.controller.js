@@ -9,4 +9,4 @@ function DashboardController(gh) {
     });
 }
 
-angular.module('dashboard').controller('dashboardController', DashboardController);
+module.exports = DashboardController;
