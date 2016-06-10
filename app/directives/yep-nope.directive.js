@@ -1,4 +1,5 @@
 let YepNopeDirective = () => {
+	require('./styles.css');
   return {
     restrict: 'E',
     link: (scope, element, attrs) => {
